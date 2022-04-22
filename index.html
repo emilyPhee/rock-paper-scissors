@@ -5,8 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <script
+      src="https://kit.fontawesome.com/e9d9913a0f.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <!-- For player -->
+    <div class="selection-container">
+      <h1>Let's Play!</h1>
+      <p>Get 5 points first to win the game</p>
+
+      <h3>YOU</h3>
+      <div class="selection-box">
+        <button id="rock">
+          <i class="fa-solid fa-hand-back-fist"></i>Rock
+        </button>
+      </div>
+      <div class="selection-box">
+        <button id="paper"><i class="fa-solid fa-hand"></i>Paper</button>
+      </div>
+      <div class="selection-box">
+        <button id="scissors">
+          <i class="fa-solid fa-hand-scissors"></i>Scissors
+        </button>
+      </div>
+
+      <!-- Score -->
+      <div class="player-score"></div>
+    </div>
+
+    <!-- For computer -->
+    <div class="selection-container">
+      <h3>COMPUTER</h3>
+      <div class="selection-box">
+        <div><i class="fa-solid fa-hand-back-fist"></i>Rock</div>
+      </div>
+      <div class="selection-box">
+        <div><i class="fa-solid fa-hand"></i>Paper</div>
+      </div>
+      <div class="selection-box">
+        <div><i class="fa-solid fa-hand-scissors"></i>Scissors</div>
+      </div>
+
+      <!-- Score -->
+      <div class="computer-score"></div>
+    </div>
+
+    <!-- Display result -->
+    <p class="result"></p>
+
+    <!--  -->
+    <div>
+      <div>PLAYER:<span id="player"></span></div>
+      <div>COMPUTER:<span id="computer"></span></div>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
