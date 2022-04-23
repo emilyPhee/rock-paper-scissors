@@ -10,56 +10,51 @@
       src="https://kit.fontawesome.com/e9d9913a0f.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- For player -->
-    <div class="selection-container">
+    <div id="content-container">
       <h1>Let's Play!</h1>
       <p>Get 5 points first to win the game</p>
+      <!-- For player -->
+      <div class="selection-container">
+        <div class="role"><h3>YOU</h3></div>
+        <div class="options">
+          <button id="rock">
+            <i class="fa-solid fa-hand-back-fist"></i>Rock
+          </button>
 
-      <h3>YOU</h3>
-      <div class="selection-box">
-        <button id="rock">
-          <i class="fa-solid fa-hand-back-fist"></i>Rock
-        </button>
-      </div>
-      <div class="selection-box">
-        <button id="paper"><i class="fa-solid fa-hand"></i>Paper</button>
-      </div>
-      <div class="selection-box">
-        <button id="scissors">
-          <i class="fa-solid fa-hand-scissors"></i>Scissors
-        </button>
-      </div>
+          <button id="paper"><i class="fa-solid fa-hand"></i>Paper</button>
 
-      <!-- Score -->
-      <div class="player-score"></div>
-    </div>
-
-    <!-- For computer -->
-    <div class="selection-container">
-      <h3>COMPUTER</h3>
-      <div class="selection-box">
-        <div><i class="fa-solid fa-hand-back-fist"></i>Rock</div>
-      </div>
-      <div class="selection-box">
-        <div><i class="fa-solid fa-hand"></i>Paper</div>
-      </div>
-      <div class="selection-box">
-        <div><i class="fa-solid fa-hand-scissors"></i>Scissors</div>
+          <button id="scissors">
+            <i class="fa-solid fa-hand-scissors"></i>Scissors
+          </button>
+        </div>
+        <!-- Score -->
+        <div class="player-score"></div>
       </div>
 
-      <!-- Score -->
-      <div class="computer-score"></div>
-    </div>
+      <!-- For computer -->
+      <div class="selection-container">
+        <div class="role"><h3>COMPUTER</h3></div>
+        <div class="options">
+          <div class="selection-box">
+            <i class="fa-solid fa-hand-back-fist"></i>Rock
+          </div>
+          <div class="selection-box"><i class="fa-solid fa-hand"></i>Paper</div>
+          <div class="selection-box">
+            <i class="fa-solid fa-hand-scissors"></i>Scissors
+          </div>
+        </div>
+        <!-- Score -->
+        <div class="computer-score"></div>
+      </div>
 
-    <!-- Display result -->
-    <p class="result"></p>
+      <!-- Display result -->
+      <p class="result"></p>
+      <div class="again-btn-container"></div>
 
-    <!--  -->
-    <div>
-      <div>PLAYER:<span id="player"></span></div>
-      <div>COMPUTER:<span id="computer"></span></div>
+      <p class=""></p>
     </div>
     <script src="app.js"></script>
   </body>

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /*
+  what we want is 10px, so divide default px (16px) to 10
+  10/16 = 0.625
+  .625*16 = 10
+  we are converting this to percent because each user may have different font size as a default
+  so that we want to provide the right font size according to user's default value (px)
+  */
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(252, 252, 252);
+}
+
+h1 {
+  font-size: 25px;
+  padding: 10px;
+}
+
+p {
+  font-size: 17px;
+}
+
+#content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(217, 213, 254, 0.642);
+
+  width: 700px;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 18px;
+}
+
+.selection-container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.options {
+  display: flex;
+}
+
+button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 7px;
+  border: solid black 2px;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 5px;
+  font-size: 20px;
+}
+
+/* same style as button */
+.selection-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 7px;
+  border: solid black 2px;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 20px;
+}
+
+.selection-box.active {
+  background-color: rgb(53, 53, 53);
+  color: #fff;
+}
+
+button.active {
+  background-color: rgb(53, 53, 53);
+  color: #fff;
+}
+
+.result {
+  font-size: 18px;
+  padding: 15px;
+}
+
+.computer-score,
+.player-score {
+  font-size: 15px;
+}

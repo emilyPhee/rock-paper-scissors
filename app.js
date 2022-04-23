@@ -1,10 +1,14 @@
 const selectionBtns = document.querySelectorAll('button');
+const computerSelections = document.querySelectorAll('.selection-box');
+
 const result = document.querySelector('.result');
 const player = document.querySelector('#player');
 const computer = document.querySelector('#computer');
 
 const playerScore = document.querySelector('.player-score');
 const computerScore = document.querySelector('.computer-score');
+const againBtn = document.querySelector('.again-btn-container');
+const playAgain = document.querySelector('.play-again');
 
 let playerWinCount = 0;
 let computerWinCount = 0;
@@ -15,13 +19,21 @@ function computerPlay() {
   // generate random number between index 0 to 2
   let randomInx = Math.floor(Math.random() * 3);
 
-  computer.innerText = choices[randomInx].toUpperCase();
   return choices[randomInx];
 }
 
 function playRound(playerSelection, computerSelection) {
+  resetClassName();
+
   const player = playerSelection.toLowerCase();
   const computer = computerSelection.toLowerCase();
+
+  // computer status update (active)
+  for (let select of computerSelections) {
+    if (select.innerText.toLowerCase() === computer) {
+      select.classList.add('active');
+    }
+  }
 
   // when user select rock
   if (player === 'rock') {
@@ -64,12 +76,20 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+  // set default value for score
+  playerScore.innerText = 0;
+  computerScore.innerText = 0;
+
   for (let btn of selectionBtns) {
     btn.addEventListener('click', () => {
       const computerSelection = computerPlay();
       let selectBtnVal = btn.id;
-      player.innerText = btn.id.toUpperCase();
+
       result.innerText = playRound(selectBtnVal, computerSelection);
+
+      if (btn.innerText.toLowerCase() === btn.id) {
+        btn.classList.add('active');
+      }
 
       // Display current score each side
       playerScore.innerText = playerWinCount;
@@ -80,24 +100,54 @@ function game() {
       }
     });
   }
-
-  // let playerSelection = prompt(
-  //   'Type one of the options: Rock | Papaer | scissors'
-  // );
-  // const computerSelection = computerPlay();
-  // console.log(playRound(playerSelection, computerSelection));
-  //   after 5 game play, ends game and display the result
-  // winner();
 }
 
 function winner() {
+  const playAgainBtn = document.createElement('button');
+  playAgainBtn.textContent = 'PLAY AGAIN';
+  playAgainBtn.classList.add('play-again');
+  againBtn.appendChild(playAgainBtn);
+
   if (playerWinCount > computerWinCount) {
-    console.log('Player Win');
+    result.innerText = 'Player Win ✌';
   } else if (playerWinCount < computerWinCount) {
-    console.log('Computer Win');
+    result.innerText = 'Computer Win 🖥';
   }
   playerWinCount = 0;
   computerWinCount = 0;
+
+  gameOver();
+
+  // re-start game
+  playAgainBtn.addEventListener('click', gameRestart);
+}
+
+function gameOver() {
+  selectionBtns.forEach(btn => (btn.disabled = true));
+}
+
+function gameRestart() {
+  selectionBtns.forEach(btn => (btn.disabled = false));
+
+  const playAgain = document.querySelector('.play-again');
+  againBtn.removeChild(playAgain);
+
+  result.innerText = '';
+  playerScore.innerText = '0';
+  computerScore.innerText = '0';
+  resetClassName();
+}
+
+function resetClassName() {
+  // reset player class status (active) before next play
+  for (let btn of selectionBtns) {
+    btn.classList.remove('active');
+  }
+
+  // reset computer class status (active) before next play
+  for (let select of computerSelections) {
+    select.classList.remove('active');
+  }
 }
 
 game();
